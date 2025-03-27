@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="front-common :: commonCss(~{::title},~{},~{},~{::style})">
+    <title>IT人才招聘</title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+
+    <div th:replace="front-common::header('index')"></div>
+
+    <div class="layui-layout-body" style="margin-top: 50px;">
+        <!-- 内容主体区域 -->
+        <div class="layui-bg-gray" style="padding: 30px;">
+            <div class="layui-container" style="display:flex;flex-direction: column;align-items: center">
+                <div class="layui-carousel" id="test10">
+                    <div carousel-item="">
+                        <div><img th:src="@{/pic/ads/a.png}"></div>
+                        <div><img th:src="@{/pic/ads/b.png}"></div>
+                        <div><img th:src="@{/pic/ads/c.png}"></div>
+                        <div><img th:src="@{/pic/ads/d.png}"></div>
+                        <div><img th:src="@{/pic/ads/e.png}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:replace="front-common::footer"></div>
+    </div>
+
+</div>
+<script>
+
+    layui.use(['carousel', 'form'], function() {
+        var carousel = layui.carousel
+            , form = layui.form;
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            , width: '840px'
+            , height: '420px'
+            , interval: 5000
+        });
+    })
+
+</script>
+</body>
+
+</html>
